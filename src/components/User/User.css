@@ -1,0 +1,55 @@
+.wrapper {
+    border: 1px solid #ccc;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+}
+
+.userImage {
+    height: 200px;
+}
+
+.left-info {
+    margin-left: 20px;
+    width: 90%;
+}
+
+.left-info span,
+.right-info span {
+    text-decoration: underline;
+}
+
+fieldset {
+    display: block;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+    border-width: 2px;
+    border-style: groove;
+    border-color: rgb(192, 192, 192);
+}
+
+.friendsCronology {
+    padding: 20px;
+}
+
+@media screen and (max-width: 990px) {
+    .header {
+        flex-direction: column;
+        align-items: unset;
+    }
+
+    .left-info,
+    .right-info {
+        margin: 0;
+        width: auto;
+    }
+}
