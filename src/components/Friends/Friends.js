@@ -52,11 +52,13 @@ const Friends = ({ handleClick }) => {
       .then((response) => response.json())
       .then((data) => {
         setLoading(true);
-        setFriends((items) => [...items, ...data?.list]);
+        setFriends((items) => [...data?.list]);
         setPagination(data.pagination?.nextPage === null ? false : true);
       })
       .then(() => setLoading(false));
   };
+
+  console.log(friends);
 
   return (
       <div className="cards-container">

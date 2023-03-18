@@ -3,12 +3,25 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./User.css";
 import Friends from "../Friends/Friends";
+import { useNavigate } from "react-router-dom";
+
 
 const User = () => {
   const params = useParams();
 
+  const navigate = useNavigate();
+
+
   const { userId } = params;
   const [user, setUser] = useState([]);
+
+  const [friendsArray, setFriendsArray ] = useState([])
+
+  const ids = friendsArray.map(o => o.id)
+const filtered = friendsArray.filter(({id}, index) => !ids.includes(id, index + 1))
+console.log("🚀 ~ file: User.js:22 ~ User ~ filtered:", filtered)
+
+
 
 
   useEffect(() => {
@@ -17,6 +30,7 @@ const User = () => {
     )
       .then((resp) => resp.json())
       .then((apiData) => {
+        setFriendsArray( prevItems =>  [...prevItems, apiData])
         setUser(apiData);
       });
   }, [userId]);
@@ -92,6 +106,13 @@ const User = () => {
       <div>
         <div></div>
       </div>
+      <div className="cronology">
+        {filtered.map(item => 
+        <div onClick={() => navigate(`/user/${item.id}`)} key={item.id}>
+          <h4>{item.name} {item.lastName} {'>'} </h4>
+        </div>)}
+      </div>
+      <h4 style={{marginLeft:40, fontSize:30}}>Friends: </h4>
       <Friends />
     </div>
   );

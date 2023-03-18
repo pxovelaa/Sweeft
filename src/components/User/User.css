@@ -5,8 +5,10 @@
 .header {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
     align-items: center;
+    padding-top: 20px;
+    width: 95%;
+    margin: 0 auto;
 }
 
 .userImage {
@@ -39,6 +41,21 @@ fieldset {
 
 .friendsCronology {
     padding: 20px;
+}
+
+.cronology {
+    display: flex;
+    margin-left: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.cronology h4 {
+    cursor: pointer;
+    text-decoration: underline;
+    color: rgb(33, 33, 91);
+    margin-left: 20px;
+    font-size: 15px;
 }
 
 @media screen and (max-width: 990px) {
